@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Proyek Bab 04: Dynamic Card Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 650px;
+      margin: 25px auto;
+      padding: 0 15px;
+      line-height: 1.5;
+      color: #333;
+    }
+    .panel {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 6px;
+      background: #fafafa;
+      margin-bottom: 20px;
+    }
+    .form-row {
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    input, select {
+      width: 100%;
+      padding: 7px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .btn-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    button {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: #0066cc;
+      color: white;
+    }
+    .btn-secondary {
+      background: #eee;
+      border: 1px solid #ccc;
+    }
+    #wadah-kartu {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 12px;
+      margin-top: 15px;
+    }
+    .card-mahasiswa {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 12px;
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .card-mahasiswa h3 {
+      margin: 0 0 6px 0;
+      font-size: 16px;
+    }
+    .card-mahasiswa p {
+      margin: 4px 0;
+      font-size: 13px;
+      color: #666;
+    }
+    .card-mahasiswa .card-footer {
+      display: flex;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .tema-sorot {
+      background-color: #e6f7ff !important;
+      border-color: #91d5ff !important;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Dynamic Card Generator</h1>
+  <p>Tambahkan kartu profil mahasiswa baru secara dinamis menggunakan DOM Manipulation.</p>
+
+  <div class="panel">
+    <div class="form-row">
+      <label for="input-nama">Nama Mahasiswa:</label>
+      <input type="text" id="input-nama" placeholder="Contoh: Hikari">
+    </div>
+    <div class="form-row">
+      <label for="input-nim">NIM:</label>
+      <input type="text" id="input-nim" placeholder="Contoh: 220101">
+    </div>
+    <div class="form-row">
+      <label for="input-jurusan">Jurusan:</label>
+      <select id="input-jurusan">
+        <option value="Teknologi Informasi">Teknologi Informasi</option>
+        <option value="Sistem Informasi">Sistem Informasi</option>
+        <option value="Ilmu Komputer">Ilmu Komputer</option>
+      </select>
+    </div>
+
+    <div class="btn-actions">
+      <button id="btn-buat-kartu" class="btn-primary">+ Buat Kartu</button>
+      <button id="btn-reset-semua" class="btn-secondary">Reset Semua Kartu</button>
+    </div>
+  </div>
+
+  <h2>Daftar Kartu Mahasiswa</h2>
+  <div id="wadah-kartu">
+    <!-- Kartu dinamis akan dimasukkan ke sini oleh JavaScript -->
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- KERJAKAN LOGIKA JAVASCRIPT ANDA DI DALAM TAG SCRIPT BERIKUT  -->
+  <!-- ============================================================ -->
+  <script>
+    // TODO: Seleksi elemen input, tombol, dan wadah kartu
+
+    // TODO: Pasang event listener pada #btn-buat-kartu:
+    // 1. Ambil nilai input dan validasi (jangan sampai kosong).
+    // 2. Buat elemen div.card-mahasiswa via document.createElement.
+    // 3. Buat judul h3 (nama), paragraf p (NIM & jurusan), dan tombol aksi.
+    // 4. Pasang event toggle class 'tema-sorot' pada tombol ganti tema.
+    // 5. Pasang event remove() pada tombol hapus.
+    // 6. Tempelkan kartu ke #wadah-kartu via append.
+
+    // TODO: Pasang event listener pada #btn-reset-semua:
+    // Kosongkan #wadah-kartu via innerHTML = ""
+  </script>
+
+</body>
+</html>

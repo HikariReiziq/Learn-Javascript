@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Proyek Bab 05: Persistent To-Do List App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 550px;
+      margin: 30px auto;
+      padding: 0 15px;
+      line-height: 1.5;
+      color: #333;
+    }
+    .card {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fafafa;
+    }
+    .form-tugas {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+    input[type="text"] {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    button {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .btn-tambah {
+      background: #0066cc;
+      color: white;
+    }
+    .btn-hapus-semua {
+      background: #fff1f0;
+      border: 1px solid #ffa39e;
+      color: #cf1322;
+      width: 100%;
+      margin-top: 15px;
+    }
+    .todo-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .todo-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    .todo-item.selesai span {
+      text-decoration: line-through;
+      color: #888;
+    }
+    .btn-selesai {
+      background: #f6ffed;
+      border: 1px solid #b7eb8f;
+      color: #389e0d;
+      padding: 4px 8px;
+      margin-right: 5px;
+      font-size: 12px;
+    }
+    .btn-hapus {
+      background: #fff1f0;
+      border: 1px solid #ffa39e;
+      color: #cf1322;
+      padding: 4px 8px;
+      font-size: 12px;
+    }
+    .empty-state {
+      text-align: center;
+      color: #888;
+      font-style: italic;
+      padding: 15px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Persistent To-Do List</h1>
+  <p>Daftar tugas tersimpan di <code>localStorage</code> browser dan tidak hilang saat di-refresh.</p>
+
+  <div class="card">
+    <form id="form-tugas" class="form-tugas">
+      <input type="text" id="input-tugas" placeholder="Apa yang ingin Anda kerjakan hari ini?" required>
+      <button type="submit" class="btn-tambah">+ Tambah</button>
+    </form>
+
+    <ul id="daftar-tugas" class="todo-list">
+      <!-- Tugas akan dirender secara dinamis di sini oleh JavaScript -->
+    </ul>
+
+    <button id="btn-hapus-semua" class="btn-hapus-semua">Hapus Semua Tugas</button>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- KERJAKAN LOGIKA JAVASCRIPT ANDA DI DALAM TAG SCRIPT BERIKUT  -->
+  <!-- ============================================================ -->
+  <script>
+    // Kunci penyimpanan di localStorage
+    const STORAGE_KEY = "daftar_tugas_app";
+
+    // 1. Ambil data awal dari localStorage (gunakan JSON.parse dengan fallback array kosong [])
+    let tugasList = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+
+    // Seleksi elemen DOM
+    const formTugas = document.getElementById("form-tugas");
+    const inputTugas = document.getElementById("input-tugas");
+    const daftarTugasEl = document.getElementById("daftar-tugas");
+    const btnHapusSemua = document.getElementById("btn-hapus-semua");
+
+    // TODO 1: Buat fungsi renderTugas() untuk mencetak isi tugasList ke dalam elemen #daftar-tugas
+    // Pastikan setiap <li> memiliki data-id atau penanda untuk membedakan item
+
+    // TODO 2: Pasang event listener 'submit' pada formTugas
+    // - Gunakan e.preventDefault()
+    // - Tambahkan object baru ke array tugasList: { id: Date.now(), teks: ..., selesai: false }
+    // - Simpan ke localStorage dengan JSON.stringify()
+    // - Panggil renderTugas()
+
+    // TODO 3: Pasang event delegation pada daftarTugasEl ('click')
+    // - Cek jika target tombol adalah .btn-selesai -> ubah status selesai pada item yang cocok
+    // - Cek jika target tombol adalah .btn-hapus -> hapus item dari array tugasList
+    // - Simpan perubahan ke localStorage dan panggil renderTugas()
+
+    // TODO 4: Pasang event pada btnHapusSemua
+    // - Kosongkan array tugasList dan bersihkan localStorage
+    // - Panggil renderTugas()
+
+    // Jalankan renderTugas() pertama kali saat halaman dibuka
+  </script>
+
+</body>
+</html>

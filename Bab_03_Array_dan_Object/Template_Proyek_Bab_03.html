@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Proyek Bab 03: Manajemen Inventaris Toko</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 650px;
+      margin: 30px auto;
+      padding: 0 15px;
+      line-height: 1.5;
+      color: #333;
+    }
+    .panel {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 6px;
+      background: #fafafa;
+      margin-bottom: 15px;
+    }
+    .action-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    button, select {
+      padding: 8px 12px;
+      border: 1px solid #999;
+      border-radius: 4px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button.primary {
+      background: #0066cc;
+      color: #fff;
+      border-color: #004c99;
+    }
+    .output-box {
+      background: #fff;
+      border: 1px dashed #666;
+      border-radius: 4px;
+      padding: 12px;
+      font-family: monospace;
+      white-space: pre-line;
+      min-height: 120px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Sistem Inventaris Toko Elektronik</h1>
+  <p>Gunakan array methods (<code>map</code>, <code>filter</code>, <code>forEach</code>) untuk mengelola data katalog.</p>
+
+  <div class="panel">
+    <div class="action-group">
+      <button id="btn-semua" class="primary">Tampilkan Semua</button>
+      <button id="btn-stok">Hanya Stok Tersedia (> 0)</button>
+      <button id="btn-diskon">Terapkan Diskon 10%</button>
+    </div>
+
+    <div class="action-group">
+      <select id="select-kategori">
+        <option value="Semua">-- Pilih Kategori --</option>
+        <option value="Laptop">Laptop</option>
+        <option value="Aksesoris">Aksesoris</option>
+        <option value="Monitor">Monitor</option>
+      </select>
+      <button id="btn-filter-kategori">Filter Kategori</button>
+    </div>
+
+    <div class="output-box" id="daftar-produk">Klik salah satu tombol di atas untuk menampilkan data...</div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- KERJAKAN LOGIKA JAVASCRIPT ANDA DI DALAM TAG SCRIPT BERIKUT  -->
+  <!-- ============================================================ -->
+  <script>
+    // Data awal inventaris
+    const katalogAwal = [
+      { id: 1, nama: "Laptop ASUS VivoBook", kategori: "Laptop", harga: 8500000, stok: 4 },
+      { id: 2, nama: "Mouse Logitech M170", kategori: "Aksesoris", harga: 150000, stok: 15 },
+      { id: 3, nama: "Keyboard Mechanical RGB", kategori: "Aksesoris", harga: 450000, stok: 0 },
+      { id: 4, nama: "Monitor LG 24 Inch", kategori: "Monitor", harga: 1750000, stok: 6 },
+      { id: 5, nama: "Flashdisk Sandisk 64GB", kategori: "Aksesoris", harga: 85000, stok: 20 },
+      { id: 6, nama: "Laptop Lenovo ThinkPad", kategori: "Laptop", harga: 12000000, stok: 0 }
+    ];
+
+    // Buat variabel salinan aktif agar data bisa dimanipulasi
+    let katalogAktif = [...katalogAwal];
+
+    // TODO: Tulis fungsi bantuan untuk mencetak daftar produk ke elemen #daftar-produk
+    // Gunakan forEach atau map untuk merangkai teks tampilan
+
+    // TODO: Pasang event listener untuk masing-masing tombol:
+    // 1. btn-semua           -> Tampilkan seluruh katalogAktif
+    let teksFilter = "Daftar Katalog Awal:\n";
+    const tombolSemua =  document.getElementById("btn-semua");
+    tombolSemua.addEventListener("click", katalogAwal.forEach(k => {
+      teksFilter =+ `${k.id}. ${k.nama} ${k.kategori} ${k.harga} ${k.stok}`
+    )
+    });
+
+    document.getElementById("output-box").textContent = teksFilter;
+
+    // 2. btn-stok            -> Filter produk yang stok > 0
+    // 3. btn-filter-kategori -> Filter sesuai pilihan dari dropdown select-kategori
+    // 4. btn-diskon          -> Gunakan map untuk memotong harga 10%
+  </script>
+</body>
+</html>
