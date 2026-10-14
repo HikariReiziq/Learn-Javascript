@@ -91,23 +91,61 @@
     // Buat variabel salinan aktif agar data bisa dimanipulasi
     let katalogAktif = [...katalogAwal];
 
-    // TODO: Tulis fungsi bantuan untuk mencetak daftar produk ke elemen #daftar-produk
-    // Gunakan forEach atau map untuk merangkai teks tampilan
+    // Satu fungsi cetak untuk semua tombol: ubah format di sini, semua tombol ikut berubah
+    const tampilkanProduk = (judul, daftar) => {
+      let teks = `${judul} (${daftar.length} produk):\n`;
+      daftar.forEach(k => {
+        teks += `[${k.id}] ${k.nama} | ${k.kategori} | Rp ${k.harga} | Sisa Stok: ${k.stok}\n`;
+      });
+      document.getElementById("daftar-produk").textContent = teks;
+    };
 
-    // TODO: Pasang event listener untuk masing-masing tombol:
-    // 1. btn-semua           -> Tampilkan seluruh katalogAktif
-    let teksFilter = "Daftar Katalog Awal:\n";
-    const tombolSemua =  document.getElementById("btn-semua");
-    tombolSemua.addEventListener("click", katalogAwal.forEach(k => {
-      teksFilter =+ `${k.id}. ${k.nama} ${k.kategori} ${k.harga} ${k.stok}`
-    )
+
+
+
+    // 1. Tampilkan semua (juga langsung saat halaman dibuka)
+    tampilkanProduk("Semua Produk", katalogAktif);
+
+    document.getElementById("btn-semua").addEventListener("click", () => {
+      tampilkanProduk("Semua Produk", katalogAktif);
     });
 
-    document.getElementById("output-box").textContent = teksFilter;
+    
+    // 2. Hanya stok tersedia
+    document.getElementById("btn-stok").addEventListener("click", () => {
+      const stokTersedia = katalogAktif.filter(k => k.stok > 0);
+      tampilkanProduk("Stok Tersedia", stokTersedia);
+    });
 
-    // 2. btn-stok            -> Filter produk yang stok > 0
-    // 3. btn-filter-kategori -> Filter sesuai pilihan dari dropdown select-kategori
-    // 4. btn-diskon          -> Gunakan map untuk memotong harga 10%
+    // 3. Filter kategori dari dropdown
+    document.getElementById("btn-filter-kategori").addEventListener("click", () => {
+      // .value harus dibaca di dalam callback agar mengambil pilihan saat tombol diklik
+      const kategoriDipilih = document.getElementById("select-kategori").value;
+
+
+
+      if (kategoriDipilih === "Semua") {
+        tampilkanProduk("Semua Produk", katalogAktif);
+      } else {
+        const hasilFilter = katalogAktif.filter(k => k.kategori === kategoriDipilih);
+        tampilkanProduk(`Kategori ${kategoriDipilih}`, hasilFilter);
+      }
+    });
+
+    // 4. Diskon 10% (map menghasilkan array baru, katalog asli tetap utuh)
+    document.getElementById("btn-diskon").addEventListener("click", () => {
+      const hasilDiskon = katalogAktif.map(k => ({
+        id: k.id,
+        nama: k.nama,
+        kategori: k.kategori,
+        harga: k.harga * 0.9,
+        stok: k.stok
+      }));
+      tampilkanProduk("Harga Setelah Diskon 10%", hasilDiskon);
+    });
+
+
+
   </script>
 </body>
 </html>

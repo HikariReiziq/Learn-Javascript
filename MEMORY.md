@@ -26,6 +26,7 @@ Dokumen ini adalah **single source of truth (sumber acuan utama)** yang merangku
   - Sub 01: Percabangan (`if`, `else if`, `else`, Ternary Operator `? :`).
   - Sub 02: Fungsi Modern (Declaration vs Arrow `() => {}`, Parameter, Return Value).
   - Sub 03: Perulangan Praktis (`for` dan `while`).
+  - Sub 04 (tambahan atas permintaan pengguna): Fungsi Lanjutan (membaca singkatan arrow function, `fungsi` vs `fungsi()`, callback, callback di `addEventListener`).
   - *Output Proyek*: Sistem Penentu Grade & Predikat Akademik Mahasiswa.
 * **Bab 03: Mengelola Data: Array & Object (2.5 Jam)**
   - Sub 01: Array & Manipulasi Data (`push`, `pop`, `splice`, `indexOf`, `includes`, `forEach`).
@@ -79,6 +80,7 @@ Dokumen ini adalah **single source of truth (sumber acuan utama)** yang merangku
    - Untuk materi dasar sintaksis, variabel, tipe data, logika, dan perulangan, **jangan gunakan event listener atau tombol-tombol UI yang rumit**.
    - Cukup eksekusi langsung kodenya saat halaman dibuka, buktikan melalui `console.log()`, dan jika perlu tampilkan nilainya secara sederhana ke elemen `<p>`.
    - Tujuannya agar mahasiswa bisa 100% fokus memahami alur algoritma dan perilaku kodenya tanpa terdistraksi seremonial DOM/UI.
+   - **Pengecualian**: materi yang memang membahas callback/event (mis. Bab 02 Sub 04) memakai tombol, atas permintaan pengguna, supaya bisa sekalian latihan.
 7. **Aturan Komentar Minimalis**:
    - **Jangan gunakan terlalu banyak komentar** `<!-- -->` atau `//` yang mengulang hal jelas atau mengulang teks heading.
    - Komentar hanya diberikan **jika ada informasi krusial/penting** (seperti penyebab error, catatan perbedaan perilaku, atau trik JavaScript penting). Aturan ini berlaku untuk seluruh file praktik ke depan.
@@ -95,11 +97,12 @@ Dokumen ini adalah **single source of truth (sumber acuan utama)** yang merangku
 - [x] **Bab 02 - Sub-Bab 01**: Percabangan Logika (`if`, `else if`, `else`, & Ternary Operator) (`Sub_01_Percabangan_Logika.md` & `Praktik_Bab_02.html` Bagian 1 Selesai)
 - [x] **Bab 02 - Sub-Bab 02**: Fungsi Modern (Declaration vs Arrow Function, Parameter, Return) (`Sub_02_Fungsi_Modern.md` & `Praktik_Bab_02.html` Bagian 2 Selesai)
 - [x] **Bab 02 - Sub-Bab 03**: Perulangan Praktis (`for`, `while`) (`Sub_03_Perulangan_Praktis.md` & `Praktik_Bab_02.html` Bagian 3 Selesai)
+- [ ] **Bab 02 - Sub-Bab 04 (Tambahan)**: Fungsi Lanjutan: Arrow, Callback, & Event (`Sub_04_Fungsi_Lanjutan.md` & `Praktik_Bab_02.html` Bagian 4 + Latihan Mandiri 4F Siap — *menunggu konfirmasi paham dari pengguna*). Dibuat karena pengguna buntu di `addEventListener` pada Proyek Bab 03.
 - [x] **Bab 03**: Struktur Data: Array & Object (Teori Selesai 100%)
   - [x] **Sub-Bab 01**: Array & Manipulasi Data Dasar (`Sub_01_Array_dan_Manipulasi_Data.md` & `Praktik_Bab_03.html` Bagian 1 Selesai)
   - [x] **Sub-Bab 02**: Object Literals & Array of Objects (`Sub_02_Object_Literals.md` & `Praktik_Bab_03.html` Bagian 2 Selesai)
   - [x] **Sub-Bab 03**: Method Array Modern (`map` & `filter`) (`Sub_03_Method_Array_Modern.md` & `Praktik_Bab_03.html` Bagian 3 Selesai)
-  - [ ] **Proyek Evaluasi Hari 1 (PR TERTUNDA)**: Manajemen Data Inventaris (`Tantangan_Proyek_Bab_03.md` & `Template_Proyek_Bab_03.html` Siap — *Menunggu Aba-aba User*)
+  - [x] **Proyek Evaluasi Hari 1**: Manajemen Data Inventaris (SELESAI). Keempat tombol dikerjakan pengguna dengan bantuan hint bertahap. Kode akhir dirapikan Claude atas permintaan pengguna: satu fungsi `tampilkanProduk`, tampil otomatis saat dibuka, dan kasus "Semua" ditangani. Kesulitan utama pengguna: callback di `addEventListener`, parameter `forEach`, scope blok, dan error yang menghentikan sisa script.
 - [x] **Bab 04**: DOM Manipulation & Dinamika Halaman (Teori Selesai 100%)
   - [x] **Sub-Bab 01**: Seleksi Elemen Web (`getElementById`, `querySelector`, `querySelectorAll`) (`Sub_01_Seleksi_Elemen.md` & `Praktik_Bab_04.html` Bagian 1 Selesai)
   - [x] **Sub-Bab 02**: Mengubah Konten & Gaya (`textContent`, `innerHTML`, `style`, `classList`) (`Sub_02_Ubah_Konten_dan_Gaya.md` & `Praktik_Bab_04.html` Bagian 2 Selesai)
